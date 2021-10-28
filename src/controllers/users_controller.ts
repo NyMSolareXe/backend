@@ -1,6 +1,7 @@
 import { Request, Response } from 'express'
 import { checkIfErrors, createResponse, invalidID } from '../helper_functions/helper'
 import UserModel, { CreateUserObject, UpdateUserObject, userID } from '../model/UserModel'
+import executeReseeder from '../database/reSeed'
 
 export const createUser = async (req: Request, res: Response) => {
   const data: CreateUserObject = req.body
@@ -110,6 +111,14 @@ export const getAllUser = async (req: Request, res: Response) => {
   const userArray = await UserModel.getAll()
   const message = {
     user: userArray
+  }
+  createResponse(res, 200, message)
+}
+
+export const reseedDatabase = async (req: Request, res: Response) => {
+  const result = await executeReseeder()
+  const message = {
+    message: result
   }
   createResponse(res, 200, message)
 }
