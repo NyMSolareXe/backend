@@ -1,0 +1,10 @@
+Not yet implemented
+Protect vs SQL Injection
+Bcrypt password
+Access level (Admin, User)
+Regex Email Validation
+Foreign keys for table1 table2 linking
+Get/1 uses POST instead of GET with json body validation instead of url query params
+Did not validate if entry already exists before inserting, EG: Email, Company Name
+Sometimes DB connection is lost, need to persist connection
+No White Space Validation (Trim)
